@@ -1,7 +1,7 @@
 class WorldCities extends AbstractApp {
     constructor(containerDiv) {
         super(containerDiv);
-//
+
     }
 
     init(dataSource) {
@@ -24,7 +24,9 @@ class SearchInputEvent extends CustomEvent {
 class SearchInput extends AbstractUIComponent {
     constructor(UIView) {
         super(UIView);
-
+        this.UIView = UIView;
+        this.boundSearchInputHandler = boundSearchInputHandler;
+        this.boundClearSearchHandler = boundClearSearchHandler;
         // Codez ici les propriétés définies dans le diagramme de classes.
         this.init();
     }
@@ -34,10 +36,12 @@ class SearchInput extends AbstractUIComponent {
     }
 
     searchInputHandler() {
+        this.dispatchEvent(new SearchInputEvent(SearchInputEventNames.SEARCH_INPUT));
         // Codez cette méthode. Adaptation en classe du TP Citation.
     }
 
     clearSearchHandler() {
+        this.dispatchEvent(new SearchInputEvent(SearchInputEventNames.CLEAR_SEARCH_INPUT));
         // Codez cette méthode. Adaptation en classe du TP Citation.
     }
 
