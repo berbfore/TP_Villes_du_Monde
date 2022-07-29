@@ -1,7 +1,7 @@
 class WorldCities extends AbstractApp {
     constructor(containerDiv) {
         super(containerDiv);
-
+//
     }
 
     init(dataSource) {
